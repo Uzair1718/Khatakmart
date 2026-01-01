@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
+import { Button } from "./ui/button";
 
 export function Footer() {
   return (
@@ -38,6 +39,11 @@ export function Footer() {
             <ul className="space-y-2">
               <li><p>No Delivery Charges</p></li>
               <li><p>Cash on Delivery Available</p></li>
+               <li className="mt-4">
+                <Button asChild variant="outline" size="sm">
+                  <Link href="/admin">Admin Login</Link>
+                </Button>
+              </li>
             </ul>
           </div>
         </div>
