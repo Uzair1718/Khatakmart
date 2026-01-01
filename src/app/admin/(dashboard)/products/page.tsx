@@ -1,5 +1,21 @@
-import { getProducts, getCategories } from "@/lib/data";
+import { getCategories } from "@/lib/data";
 import { ProductsClient } from "./ProductsClient";
+import type { Product } from "@/lib/types";
+import fs from 'fs/promises';
+import path from 'path';
+
+const productsFilePath = path.join(process.cwd(), 'src', 'lib', 'products.json');
+
+const getProducts = async (): Promise<Product[]> => {
+    try {
+        await fs.access(productsFilePath);
+        const fileContent = await fs.readFile(productsFilePath, 'utf-8');
+        return JSON.parse(fileContent);
+    } catch (error) {
+        return [];
+    }
+}
+
 
 export default async function AdminProductsPage() {
   const products = await getProducts();

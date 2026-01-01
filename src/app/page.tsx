@@ -3,10 +3,30 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { StoreLayout } from "@/components/StoreLayout";
-import { getCategories, getFeaturedProducts } from "@/lib/data";
+import { getCategories } from "@/lib/data";
 import { ProductCard } from "@/components/ProductCard";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight } from "lucide-react";
+import type { Product } from "@/lib/types";
+import fs from 'fs/promises';
+import path from 'path';
+
+const productsFilePath = path.join(process.cwd(), 'src', 'lib', 'products.json');
+
+const getProducts = async (): Promise<Product[]> => {
+    try {
+        await fs.access(productsFilePath);
+        const fileContent = await fs.readFile(productsFilePath, 'utf-8');
+        return JSON.parse(fileContent);
+    } catch (error) {
+        return [];
+    }
+}
+
+const getFeaturedProducts = async () => {
+    const products = await getProducts();
+    return products.filter(p => p.isFeatured);
+};
 
 export default async function HomePage() {
   const categories = await getCategories();

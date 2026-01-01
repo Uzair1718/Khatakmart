@@ -1,54 +1,33 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import { getProductById } from "@/lib/data";
-import { type Product } from "@/lib/types";
 import { StoreLayout } from "@/components/StoreLayout";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useCart } from "@/context/CartProvider";
 import { notFound } from "next/navigation";
-import { Skeleton } from "@/components/ui/skeleton";
 import { CalendarDays, PlusCircle, MinusCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { AddToCartButtons } from "./AddToCartButtons";
+import type { Product } from "@/lib/types";
+import fs from 'fs/promises';
+import path from 'path';
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
-  const [product, setProduct] = useState<Product | null | undefined>(null);
-  const [quantity, setQuantity] = useState(1);
-  const { addToCart } = useCart();
+const productsFilePath = path.join(process.cwd(), 'src', 'lib', 'products.json');
 
-  useEffect(() => {
-    getProductById(params.id).then(data => setProduct(data));
-  }, [params.id]);
+const getProductById = async (id: string): Promise<Product | undefined> => {
+    try {
+        await fs.access(productsFilePath);
+        const fileContent = await fs.readFile(productsFilePath, 'utf-8');
+        const products: Product[] = JSON.parse(fileContent);
+        return products.find(p => p.id === id);
+    } catch (error) {
+        return undefined;
+    }
+};
 
-  if (product === undefined) {
+export default async function ProductDetailPage({ params }: { params: { id: string } }) {
+  const product = await getProductById(params.id);
+
+  if (!product) {
     notFound();
   }
-
-  if (product === null) {
-    return (
-      <StoreLayout>
-        <div className="container py-12">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            <Skeleton className="aspect-square w-full rounded-lg" />
-            <div className="space-y-4">
-              <Skeleton className="h-10 w-3/4" />
-              <Skeleton className="h-6 w-1/4" />
-              <Skeleton className="h-20 w-full" />
-              <Skeleton className="h-12 w-1/2" />
-            </div>
-          </div>
-        </div>
-      </StoreLayout>
-    );
-  }
-
-  const handleAddToCart = () => {
-    if (product) {
-      addToCart(product, quantity);
-    }
-  };
 
   return (
     <StoreLayout>
@@ -77,27 +56,8 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               </div>
             )}
             
-            <div className="flex items-center gap-4 mt-4">
-              <div className="flex items-center gap-2">
-                <Button variant="outline" size="icon" onClick={() => setQuantity(q => Math.max(1, q - 1))}>
-                    <MinusCircle className="h-5 w-5"/>
-                </Button>
-                <Input 
-                  type="number"
-                  value={quantity}
-                  onChange={(e) => setQuantity(Number(e.target.value))}
-                  className="w-16 h-10 text-center text-lg font-bold"
-                  min="1"
-                />
-                <Button variant="outline" size="icon" onClick={() => setQuantity(q => q + 1)}>
-                    <PlusCircle className="h-5 w-5"/>
-                </Button>
-              </div>
-              <Button size="lg" className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90" onClick={handleAddToCart}>
-                <PlusCircle className="mr-2 h-5 w-5" />
-                Add to Cart
-              </Button>
-            </div>
+            <AddToCartButtons product={product} />
+
           </div>
         </div>
       </div>

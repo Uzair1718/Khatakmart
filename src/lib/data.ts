@@ -1,7 +1,5 @@
-import type { Category, Order, Product } from './types';
+import type { Category } from './types';
 import { PlaceHolderImages } from './placeholder-images';
-import fs from 'fs';
-import path from 'path';
 
 const findImage = (id: string) => {
   const image = PlaceHolderImages.find((img) => img.id === id);
@@ -32,52 +30,5 @@ export const categories: Category[] = [
   },
 ];
 
-const productsFilePath = path.join(process.cwd(), 'src', 'lib', 'products.json');
-const ordersFilePath = path.join(process.cwd(), 'src', 'lib', 'orders.json');
-
-
-const readDataFromFile = <T>(filePath: string, defaultData: T[] = []): T[] => {
-    try {
-        if (fs.existsSync(filePath)) {
-            const fileContent = fs.readFileSync(filePath, 'utf-8');
-            return JSON.parse(fileContent);
-        }
-        return defaultData;
-    } catch (error) {
-        console.error(`Could not read ${path.basename(filePath)}, starting with empty list`, error);
-        return defaultData;
-    }
-}
-
-export const getProducts = async (): Promise<Product[]> => {
-    return readDataFromFile<Product>(productsFilePath, []);
-};
-
-export const getProductById = async (id: string): Promise<Product | undefined> => {
-    const products = await getProducts();
-    return products.find(p => p.id === id);
-};
 
 export const getCategories = async () => Promise.resolve(categories);
-
-export const getFeaturedProducts = async () => {
-    const products = await getProducts();
-    return products.filter(p => p.isFeatured);
-};
-
-export const getOrders = async (): Promise<Order[]> => {
-    return readDataFromFile<Order>(ordersFilePath, []);
-}
-
-export const getOrderById = async (id: string) => {
-    const orders = await getOrders();
-    return orders.find(o => o.id === id);
-};
-
-export const getDashboardStats = async () => {
-    const orders = await getOrders();
-    const totalOrders = orders.length;
-    const pendingCOD = orders.filter(o => o.paymentMethod === 'COD' && o.paymentStatus.startsWith('Pending')).length;
-    const paidOrders = orders.filter(o => o.paymentStatus === 'Paid').length;
-    return Promise.resolve({ totalOrders, pendingCOD, paidOrders });
-}

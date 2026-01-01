@@ -1,8 +1,23 @@
-import { getCategories, getProducts } from "@/lib/data";
+import { getCategories } from "@/lib/data";
 import { ProductCard } from "@/components/ProductCard";
 import { StoreLayout } from "@/components/StoreLayout";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import type { Product } from "@/lib/types";
+import fs from 'fs/promises';
+import path from 'path';
+
+const productsFilePath = path.join(process.cwd(), 'src', 'lib', 'products.json');
+
+const getProducts = async (): Promise<Product[]> => {
+    try {
+        await fs.access(productsFilePath);
+        const fileContent = await fs.readFile(productsFilePath, 'utf-8');
+        return JSON.parse(fileContent);
+    } catch (error) {
+        return [];
+    }
+}
 
 type ProductsPageProps = {
   searchParams: {

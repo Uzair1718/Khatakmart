@@ -5,7 +5,29 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { DollarSign, CreditCard, Package } from "lucide-react"
-import { getDashboardStats } from "@/lib/data";
+import type { Order } from '@/lib/types';
+import fs from 'fs/promises';
+import path from 'path';
+
+const ordersFilePath = path.join(process.cwd(), 'src', 'lib', 'orders.json');
+
+const getOrders = async (): Promise<Order[]> => {
+    try {
+        await fs.access(ordersFilePath);
+        const fileContent = await fs.readFile(ordersFilePath, 'utf-8');
+        return JSON.parse(fileContent);
+    } catch (error) {
+        return [];
+    }
+}
+
+const getDashboardStats = async () => {
+    const orders = await getOrders();
+    const totalOrders = orders.length;
+    const pendingCOD = orders.filter(o => o.paymentMethod === 'COD' && o.paymentStatus.startsWith('Pending')).length;
+    const paidOrders = orders.filter(o => o.paymentStatus === 'Paid').length;
+    return Promise.resolve({ totalOrders, pendingCOD, paidOrders });
+}
 
 export default async function DashboardPage() {
     const stats = await getDashboardStats();

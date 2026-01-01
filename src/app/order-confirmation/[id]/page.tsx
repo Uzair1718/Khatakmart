@@ -1,10 +1,25 @@
-import { getOrderById } from "@/lib/data";
 import { StoreLayout } from "@/components/StoreLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
+import type { Order } from "@/lib/types";
+import fs from 'fs/promises';
+import path from 'path';
+
+const ordersFilePath = path.join(process.cwd(), 'src', 'lib', 'orders.json');
+
+const getOrderById = async (id: string) => {
+    try {
+        await fs.access(ordersFilePath);
+        const fileContent = await fs.readFile(ordersFilePath, 'utf-8');
+        const orders: Order[] = JSON.parse(fileContent);
+        return orders.find(o => o.id === id);
+    } catch (error) {
+        return undefined;
+    }
+};
 
 export default async function OrderConfirmationPage({ params }: { params: { id: string }}) {
   const order = await getOrderById(params.id);
