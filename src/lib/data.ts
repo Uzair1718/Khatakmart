@@ -253,7 +253,7 @@ export const updateOrderStatus = async (id: string, orderStatus: Order['orderSta
 
 export const getDashboardStats = async () => {
     const totalOrders = orders.length;
-    const pendingCOD = orders.filter(o => o.paymentStatus === 'Pending Payment - COD').length;
+    const pendingCOD = orders.filter(o => o.paymentMethod === 'COD' && o.paymentStatus.startsWith('Pending')).length;
     const paidOrders = orders.filter(o => o.paymentStatus === 'Paid').length;
     return Promise.resolve({ totalOrders, pendingCOD, paidOrders });
 }
