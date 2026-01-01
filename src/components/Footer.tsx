@@ -30,7 +30,7 @@ export function Footer() {
             <h3 className="font-headline text-lg font-semibold text-foreground mb-4">Contact Us</h3>
             <ul className="space-y-2 text-sm">
               <li>DHA Phase 2, Islamabad, Pakistan</li>
-              <li>WhatsApp: +92 330 5913399</li>
+              <li>WhatsApp: +92 315 5770026</li>
               <li>Email: orders@khattakmart.com</li>
             </ul>
           </div>

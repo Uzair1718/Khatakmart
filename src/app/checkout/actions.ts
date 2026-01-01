@@ -1,3 +1,4 @@
+
 "use server";
 
 import { addOrder } from "@/lib/data";
@@ -39,7 +40,7 @@ export async function placeOrder(formData: FormData) {
         });
 
         // WhatsApp Integration
-        const whatsappNumber = "923305913399";
+        const whatsappNumber = "923155770026";
         let message = `*New Order from Khattak MART Website*\n\n`;
         message += `*Order ID:* ${newOrder.id}\n`;
         message += `*Customer:* ${name}\n`;
