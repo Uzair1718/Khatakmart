@@ -49,15 +49,6 @@ const readDataFromFile = <T>(filePath: string, defaultData: T[] = []): T[] => {
     }
 }
 
-const writeDataToFile = <T>(filePath: string, data: T[]) => {
-    try {
-        fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
-    } catch (error) {
-        console.error(`Could not write to ${path.basename(filePath)}`, error);
-    }
-}
-
-
 export const getProducts = async (): Promise<Product[]> => {
     return readDataFromFile<Product>(productsFilePath, []);
 };
@@ -89,40 +80,4 @@ export const getDashboardStats = async () => {
     const pendingCOD = orders.filter(o => o.paymentMethod === 'COD' && o.paymentStatus.startsWith('Pending')).length;
     const paidOrders = orders.filter(o => o.paymentStatus === 'Paid').length;
     return Promise.resolve({ totalOrders, pendingCOD, paidOrders });
-}
-
-export const addNewProduct = (productData: Omit<Product, 'id' | 'image'> & { image: { id: string } }) => {
-    const products = readDataFromFile<Product>(productsFilePath, []);
-    const newProduct: Product = {
-        ...productData,
-        id: `prod-${String(products.length + 1 + Math.random()).padStart(3, '0')}`,
-        image: findImage(productData.image.id),
-    };
-    const updatedProducts = [newProduct, ...products];
-    writeDataToFile(productsFilePath, updatedProducts);
-    return newProduct;
-}
-
-export const addNewOrder = (order: Omit<Order, 'id' | 'createdAt'>): Order => {
-    const orders = readDataFromFile<Order>(ordersFilePath, []);
-    const newOrder: Order = {
-        ...order,
-        id: `ORD-${String(orders.length + 1).padStart(3, '0')}`,
-        createdAt: new Date(),
-    };
-    const updatedOrders = [...orders, newOrder];
-    writeDataToFile(ordersFilePath, updatedOrders);
-    return newOrder;
-}
-
-export const updateExistingOrder = (id: string, orderStatus: Order['orderStatus'], paymentStatus: Order['paymentStatus']): Order | null => {
-    const orders = readDataFromFile<Order>(ordersFilePath, []);
-    const orderIndex = orders.findIndex(o => o.id === id);
-    if(orderIndex !== -1) {
-        orders[orderIndex].orderStatus = orderStatus;
-        orders[orderIndex].paymentStatus = paymentStatus;
-        writeDataToFile(ordersFilePath, orders);
-        return orders[orderIndex];
-    }
-    return null;
 }

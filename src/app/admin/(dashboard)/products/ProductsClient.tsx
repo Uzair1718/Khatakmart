@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal, PlusCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import type { Product } from "@/lib/types";
+import type { Product, Category } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -93,7 +93,7 @@ export const columns: ColumnDef<Product>[] = [
   },
 ];
 
-export function ProductsClient({ products }: { products: Product[] }) {
+export function ProductsClient({ products, categories }: { products: Product[], categories: Category[] }) {
   const [open, setOpen] = React.useState(false);
   const table = useReactTable({
     data: products,
@@ -118,7 +118,7 @@ export function ProductsClient({ products }: { products: Product[] }) {
             <DialogHeader>
                 <DialogTitle>Add New Product</DialogTitle>
             </DialogHeader>
-            <AddProductForm setOpen={setOpen} />
+            <AddProductForm setOpen={setOpen} categories={categories} />
         </DialogContent>
       </Dialog>
 

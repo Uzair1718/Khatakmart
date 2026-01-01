@@ -1,19 +1,11 @@
 'use client';
 
 import { useFormState, useFormStatus } from 'react-dom';
-import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
 import {
     Select,
     SelectContent,
@@ -22,11 +14,12 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import { useToast } from '@/hooks/use-toast';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { categories } from '@/lib/data';
 import { handleAddProduct } from './actions';
+import type { Category } from '@/lib/types';
+
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -57,7 +50,7 @@ function SubmitButton() {
   );
 }
 
-export function AddProductForm({ setOpen }: { setOpen: (open: boolean) => void }) {
+export function AddProductForm({ setOpen, categories }: { setOpen: (open: boolean) => void, categories: Category[] }) {
   const { toast } = useToast();
   const router = useRouter();
 

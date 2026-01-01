@@ -1,13 +1,14 @@
-import { getProducts } from "@/lib/data";
+import { getProducts, getCategories } from "@/lib/data";
 import { ProductsClient } from "./ProductsClient";
 
 export default async function AdminProductsPage() {
   const products = await getProducts();
+  const categories = await getCategories();
 
   return (
     <div className="flex flex-col gap-6">
       <h1 className="text-3xl font-bold font-headline">Products</h1>
-      <ProductsClient products={products} />
+      <ProductsClient products={products} categories={categories} />
     </div>
   );
 }

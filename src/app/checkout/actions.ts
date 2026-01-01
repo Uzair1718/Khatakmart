@@ -1,8 +1,46 @@
 
 "use server";
 
-import { addNewOrder } from "@/lib/data";
-import { CartItem } from "@/lib/types";
+import type { CartItem, Order } from "@/lib/types";
+import fs from 'fs';
+import path from 'path';
+
+
+const ordersFilePath = path.join(process.cwd(), 'src', 'lib', 'orders.json');
+
+const readDataFromFile = <T>(filePath: string, defaultData: T[] = []): T[] => {
+    try {
+        if (fs.existsSync(filePath)) {
+            const fileContent = fs.readFileSync(filePath, 'utf-8');
+            return JSON.parse(fileContent);
+        }
+        return defaultData;
+    } catch (error) {
+        console.error(`Could not read ${path.basename(filePath)}, starting with empty list`, error);
+        return defaultData;
+    }
+}
+
+const writeDataToFile = <T>(filePath: string, data: T[]) => {
+    try {
+        fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+    } catch (error) => {
+        console.error(`Could not write to ${path.basename(filePath)}`, error);
+    }
+}
+
+export const addNewOrder = (order: Omit<Order, 'id' | 'createdAt'>): Order => {
+    const orders = readDataFromFile<Order>(ordersFilePath, []);
+    const newOrder: Order = {
+        ...order,
+        id: `ORD-${String(orders.length + 1).padStart(3, '0')}`,
+        createdAt: new Date(),
+    };
+    const updatedOrders = [...orders, newOrder];
+    writeDataToFile(ordersFilePath, updatedOrders);
+    return newOrder;
+}
+
 
 // In a real app, you would upload to a blob store like Cloud Storage
 async function uploadPaymentProof(file: File): Promise<string> {
