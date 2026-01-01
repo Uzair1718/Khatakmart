@@ -1,3 +1,112 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "A vibrant display of fresh groceries on a counter.",
+      "imageUrl": "https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxncm9jZXJ5JTIwc3RvcmV8ZW58MHx8fHwxNzY3MjM1NTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grocery store"
+    },
+    {
+      "id": "rice",
+      "description": "A bag of premium basmati rice.",
+      "imageUrl": "https://images.unsplash.com/photo-1563249894-7aad9916d1ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxiYWclMjByaWNlfGVufDB8fHx8MTc2NzIwMzM5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bag rice"
+    },
+    {
+      "id": "flour",
+      "description": "A paper bag of whole wheat flour.",
+      "imageUrl": "https://images.unsplash.com/photo-1761222191837-4448599c09fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxiYWclMjBmbG91cnxlbnwwfHx8fDE3NjcyNjEwNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bag flour"
+    },
+    {
+      "id": "lentils",
+      "description": "A clear bag of red lentils.",
+      "imageUrl": "https://images.unsplash.com/photo-1728931339590-c3bba05a7d01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiYWclMjBsZW50aWxzfGVufDB8fHx8MTc2NzIwMzM5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bag lentils"
+    },
+    {
+      "id": "spices",
+      "description": "A jar of mixed spices.",
+      "imageUrl": "https://images.unsplash.com/photo-1757802261994-3c31584daafd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzcGljZXMlMjBqYXJ8ZW58MHx8fHwxNzY3MjYxMDYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spices jar"
+    },
+    {
+      "id": "snacks",
+      "description": "A bag of potato chips.",
+      "imageUrl": "https://images.unsplash.com/photo-1528751014936-863e6e7a319c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwb3RhdG8lMjBjaGlwc3xlbnwwfHx8fDE3NjcyMzk2ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "potato chips"
+    },
+    {
+      "id": "beverages",
+      "description": "A bottle of fresh juice.",
+      "imageUrl": "https://images.unsplash.com/photo-1632330159828-f92bb6c4f031?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8anVpY2UlMjBib3R0bGV8ZW58MHx8fHwxNzY3MTk5NTUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "juice bottle"
+    },
+    {
+      "id": "frozen-chicken",
+      "description": "A pack of frozen chicken pieces.",
+      "imageUrl": "https://images.unsplash.com/photo-1709083591554-fe22ef2a8d56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmcm96ZW4lMjBjaGlja2VufGVufDB8fHx8MTc2NzIxMzM3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "frozen chicken"
+    },
+    {
+      "id": "frozen-fries",
+      "description": "A bag of frozen french fries.",
+      "imageUrl": "https://images.unsplash.com/photo-1693160206119-f186d3a8b488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmcm96ZW4lMjBmcmllc3xlbnwwfHx8fDE3NjcyMDE2Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "frozen fries"
+    },
+    {
+      "id": "nuggets",
+      "description": "A box of frozen chicken nuggets.",
+      "imageUrl": "https://images.unsplash.com/photo-1562967914-608f82629710?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaGlja2VuJTIwbnVnZ2V0c3xlbnwwfHx8fDE3NjcyMTMzNzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chicken nuggets"
+    },
+    {
+      "id": "packaged-milk",
+      "description": "A carton of packaged milk.",
+      "imageUrl": "https://images.unsplash.com/photo-1576186726115-4d51596775d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtaWxrJTIwY2FydG9ufGVufDB8fHx8MTc2NzI0NDc5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "milk carton"
+    },
+    {
+      "id": "cooking-oil",
+      "description": "A bottle of cooking oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1552592074-ea7a91b851b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y29va2luZyUyMG9pbHxlbnwwfHx8fDE3NjcyNTk4NTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cooking oil"
+    },
+    {
+      "id": "sugar",
+      "description": "A bag of white sugar.",
+      "imageUrl": "https://images.unsplash.com/photo-1761682751735-a75dd595f7b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdWdhciUyMGJhZ3xlbnwwfHx8fDE3NjcyNjEwNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sugar bag"
+    },
+    {
+      "id": "tea",
+      "description": "A box of tea bags.",
+      "imageUrl": "https://images.unsplash.com/photo-1600174729013-c07825929f40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZWElMjBib3h8ZW58MHx8fHwxNzY3MjYxMDYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tea box"
+    },
+    {
+      "id": "biscuits",
+      "description": "A pack of sweet biscuits.",
+      "imageUrl": "https://images.unsplash.com/photo-1636986196800-501029e4758d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxiaXNjdWl0cyUyMHBhY2t8ZW58MHx8fHwxNzY3MjYxMDYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "biscuits pack"
+    },
+    {
+      "id": "category-dry",
+      "description": "Assortment of dry grocery items.",
+      "imageUrl": "https://images.unsplash.com/photo-1763063515129-a328692ed071?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkcnklMjBnb29kc3xlbnwwfHx8fDE3NjcyNTQ4OTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dry goods"
+    },
+    {
+      "id": "category-frozen",
+      "description": "A freezer aisle with frozen foods.",
+      "imageUrl": "https://images.unsplash.com/photo-1651383140368-9b3ee59c2981?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmcm96ZW4lMjBmb29kfGVufDB8fHx8MTc2NzIxMDc4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "frozen food"
+    },
+    {
+      "id": "category-dairy",
+      "description": "Cartons of milk on a shelf.",
+      "imageUrl": "https://images.unsplash.com/photo-1757857843388-b8e0127e1cef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtaWxrJTIwY2FydG9uc3xlbnwwfHx8fDE3NjcyNjEwNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "milk cartons"
+    }
+  ]
 }
