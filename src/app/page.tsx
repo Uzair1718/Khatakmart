@@ -47,7 +47,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((category) => (
               <Link key={category.id} href={`/products?category=${category.id}`} className="group block">
-                <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative">
                   <div className="relative h-48">
                     <Image
                       src={category.image.imageUrl}
@@ -59,7 +59,7 @@ export default async function HomePage() {
                     />
                     <div className="absolute inset-0 bg-black/40" />
                   </div>
-                  <CardContent className="absolute inset-0 flex items-center justify-center">
+                  <CardContent className="absolute inset-0 flex items-center justify-center p-0">
                     <h3 className="text-2xl font-bold text-white font-headline text-center p-4">
                       {category.name}
                     </h3>
