@@ -29,7 +29,7 @@ const writeDataToFile = <T,>(filePath: string, data: T[]) => {
     }
 }
 
-export const addNewOrder = (order: Omit<Order, 'id' | 'createdAt'>): Order => {
+export const addNewOrder = async (order: Omit<Order, 'id' | 'createdAt'>): Promise<Order> => {
     const orders = readDataFromFile<Order>(ordersFilePath, []);
     const newOrder: Order = {
         ...order,
@@ -65,7 +65,7 @@ export async function placeOrder(formData: FormData) {
             paymentProofUrl = await uploadPaymentProof(paymentProofFile);
         }
 
-        const newOrder = addNewOrder({
+        const newOrder = await addNewOrder({
             customerName: name,
             customerPhone: phone,
             customerAddress: address,
