@@ -1,15 +1,7 @@
 import { getProducts } from "@/lib/data";
 import { ProductsClient } from "./ProductsClient";
-import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
 
 export default async function AdminProductsPage() {
-    const cookieStore = cookies();
-    const authCookie = cookieStore.get("khattak_mart_auth");
-
-    if (authCookie?.value !== "true") {
-      redirect("/admin/login");
-    }
   const products = await getProducts();
 
   return (

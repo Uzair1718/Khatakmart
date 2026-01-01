@@ -1,16 +1,7 @@
-import { redirect } from 'next/navigation';
-import { cookies } from 'next/headers';
 import { SettingsForm } from './SettingsForm';
 import { getAdminUsername } from '@/lib/auth';
 
 export default async function AdminSettingsPage() {
-  const cookieStore = cookies();
-  const authCookie = cookieStore.get('khattak_mart_auth');
-
-  if (authCookie?.value !== 'true') {
-    redirect('/admin/login');
-  }
-
   const currentUsername = await getAdminUsername();
 
   return (
