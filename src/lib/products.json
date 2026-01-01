@@ -1,0 +1,205 @@
+[
+  {
+    "id": "prod-001",
+    "name": "Basmati Rice 5kg",
+    "description": "Premium quality long-grain Basmati rice, perfect for biryani and pulao.",
+    "price": 1850,
+    "image": {
+      "id": "rice",
+      "description": "A bag of premium basmati rice.",
+      "imageUrl": "https://images.unsplash.com/photo-1563249894-7aad9916d1ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxiYWclMjByaWNlfGVufDB8fHx8MTc2NzIwMzM5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bag rice"
+    },
+    "category": "dry-goods",
+    "stock": 50,
+    "isFeatured": true
+  },
+  {
+    "id": "prod-002",
+    "name": "Whole Wheat Flour 10kg",
+    "description": "Fine quality chakki atta for soft and fluffy rotis.",
+    "price": 1200,
+    "image": {
+      "id": "flour",
+      "description": "A paper bag of whole wheat flour.",
+      "imageUrl": "https://images.unsplash.com/photo-1761222191837-4448599c09fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxiYWclMjBmbG91cnxlbnwwfHx8fDE3NjcyNjEwNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bag flour"
+    },
+    "category": "dry-goods",
+    "stock": 40
+  },
+  {
+    "id": "prod-003",
+    "name": "Red Lentils (Masoor Dal) 1kg",
+    "description": "High-protein red lentils, easy to cook and delicious.",
+    "price": 320,
+    "image": {
+      "id": "lentils",
+      "description": "A clear bag of red lentils.",
+      "imageUrl": "https://images.unsplash.com/photo-1728931339590-c3bba05a7d01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiYWclMjBsZW50aWxzfGVufDB8fHx8MTc2NzIwMzM5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bag lentils"
+    },
+    "category": "dry-goods",
+    "stock": 100
+  },
+  {
+    "id": "prod-004",
+    "name": "National Biryani Masala",
+    "description": "A special blend of spices for authentic Sindhi Biryani.",
+    "price": 150,
+    "image": {
+      "id": "spices",
+      "description": "A jar of mixed spices.",
+      "imageUrl": "https://images.unsplash.com/photo-1757802261994-3c31584daafd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzcGljZXMlMjBqYXJ8ZW58MHx8fHwxNzY3MjYxMDYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spices jar"
+    },
+    "category": "dry-goods",
+    "stock": 200,
+    "isFeatured": true
+  },
+  {
+    "id": "prod-005",
+    "name": "Family Pack Potato Chips",
+    "description": "Classic salted potato chips, a perfect snack for any time.",
+    "price": 100,
+    "image": {
+      "id": "snacks",
+      "description": "A bag of potato chips.",
+      "imageUrl": "https://images.unsplash.com/photo-1528751014936-863e6e7a319c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwb3RhdG8lMjBjaGlwc3xlbnwwfHx8fDE3NjcyMzk2ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "potato chips"
+    },
+    "category": "dry-goods",
+    "stock": 150
+  },
+  {
+    "id": "prod-006",
+    "name": "Mixed Fruit Juice 1L",
+    "description": "Refreshing and nutritious mixed fruit juice.",
+    "price": 280,
+    "image": {
+      "id": "beverages",
+      "description": "A bottle of fresh juice.",
+      "imageUrl": "https://images.unsplash.com/photo-1632330159828-f92bb6c4f031?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8anVpY2UlMjBib3R0bGV8ZW58MHx8fHwxNzY3MTk5NTUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "juice bottle"
+    },
+    "category": "dry-goods",
+    "stock": 80
+  },
+  {
+    "id": "prod-007",
+    "name": "Frozen Chicken Breast 1kg",
+    "description": "Boneless and skinless chicken breast, frozen to maintain freshness.",
+    "price": 1100,
+    "image": {
+      "id": "frozen-chicken",
+      "description": "A pack of frozen chicken pieces.",
+      "imageUrl": "https://images.unsplash.com/photo-1709083591554-fe22ef2a8d56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmcm96ZW4lMjBjaGlja2VufGVufDB8fHx8MTc2NzIxMzM3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "frozen chicken"
+    },
+    "category": "frozen-foods",
+    "stock": 30,
+    "isFeatured": true
+  },
+  {
+    "id": "prod-008",
+    "name": "Frozen French Fries 1kg",
+    "description": "Ready-to-cook french fries for a quick and tasty side.",
+    "price": 550,
+    "image": {
+      "id": "frozen-fries",
+      "description": "A bag of frozen french fries.",
+      "imageUrl": "https://images.unsplash.com/photo-1693160206119-f186d3a8b488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmcm96ZW4lMjBmcmllc3xlbnwwfHx8fDE3NjcyMDE2Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "frozen fries"
+    },
+    "category": "frozen-foods",
+    "stock": 60
+  },
+  {
+    "id": "prod-009",
+    "name": "Chicken Nuggets 500g",
+    "description": "Crispy and tender chicken nuggets, a favorite for all ages.",
+    "price": 750,
+    "image": {
+      "id": "nuggets",
+      "description": "A box of frozen chicken nuggets.",
+      "imageUrl": "https://images.unsplash.com/photo-1562967914-608f82629710?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaGlja2VuJTIwbnVnZ2V0c3xlbnwwfHx8fDE3NjcyMTMzNzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chicken nuggets"
+    },
+    "category": "frozen-foods",
+    "stock": 45,
+    "isFeatured": true
+  },
+  {
+    "id": "prod-010",
+    "name": "Full Cream Milk 1L",
+    "description": "UHT processed full cream milk, with a long shelf life.",
+    "price": 260,
+    "image": {
+      "id": "packaged-milk",
+      "description": "A carton of packaged milk.",
+      "imageUrl": "https://images.unsplash.com/photo-1576186726115-4d51596775d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtaWxrJTIwY2FydG9ufGVufDB8fHx8MTc2NzI0NDc5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "milk carton"
+    },
+    "category": "packaged-milk",
+    "expiryDate": "2024-12-31",
+    "stock": 120
+  },
+  {
+    "id": "prod-011",
+    "name": "Cooking Oil 3L",
+    "description": "Versatile cooking oil for all your frying and cooking needs.",
+    "price": 1600,
+    "image": {
+      "id": "cooking-oil",
+      "description": "A bottle of cooking oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1552592074-ea7a91b851b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y29va2luZyUyMG9pbHxlbnwwfHx8fDE3NjcyNTk4NTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cooking oil"
+    },
+    "category": "dry-goods",
+    "stock": 70
+  },
+  {
+    "id": "prod-012",
+    "name": "Refined Sugar 1kg",
+    "description": "Clean and pure refined white sugar.",
+    "price": 180,
+    "image": {
+      "id": "sugar",
+      "description": "A bag of white sugar.",
+      "imageUrl": "https://images.unsplash.com/photo-1761682751735-a75dd595f7b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdWdhciUyMGJhZ3xlbnwwfHx8fDE3NjcyNjEwNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sugar bag"
+    },
+    "category": "dry-goods",
+    "stock": 300
+  },
+  {
+    "id": "prod-013",
+    "name": "Black Tea Bags (100 pack)",
+    "description": "Rich and aromatic black tea for a perfect start to your day.",
+    "price": 450,
+    "image": {
+      "id": "tea",
+      "description": "A box of tea bags.",
+      "imageUrl": "https://images.unsplash.com/photo-1600174729013-c07825929f40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZWElMjBib3h8ZW58MHx8fHwxNzY3MjYxMDYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tea box"
+    },
+    "category": "dry-goods",
+    "stock": 90
+  },
+  {
+    "id": "prod-014",
+    "name": "Chocolate Chip Biscuits",
+    "description": "Deliciously sweet biscuits packed with chocolate chips.",
+    "price": 220,
+    "image": {
+      "id": "biscuits",
+      "description": "A pack of sweet biscuits.",
+      "imageUrl": "https://images.unsplash.com/photo-1636986196800-501029e4758d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxiaXNjdWl0cyUyMHBhY2t8ZW58MHx8fHwxNzY3MjYxMDYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "biscuits pack"
+    },
+    "category": "dry-goods",
+    "stock": 110,
+    "isFeatured": true
+  }
+]
+    

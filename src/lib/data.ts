@@ -1,5 +1,7 @@
 import type { Category, Order, Product } from './types';
 import { PlaceHolderImages } from './placeholder-images';
+import fs from 'fs';
+import path from 'path';
 
 const findImage = (id: string) => {
   const image = PlaceHolderImages.find((img) => img.id === id);
@@ -30,140 +32,28 @@ export const categories: Category[] = [
   },
 ];
 
-export let products: Product[] = [
-  {
-    id: 'prod-001',
-    name: 'Basmati Rice 5kg',
-    description: 'Premium quality long-grain Basmati rice, perfect for biryani and pulao.',
-    price: 1850,
-    image: findImage('rice'),
-    category: 'dry-goods',
-    stock: 50,
-    isFeatured: true,
-  },
-  {
-    id: 'prod-002',
-    name: 'Whole Wheat Flour 10kg',
-    description: 'Fine quality chakki atta for soft and fluffy rotis.',
-    price: 1200,
-    image: findImage('flour'),
-    category: 'dry-goods',
-    stock: 40,
-  },
-  {
-    id: 'prod-003',
-    name: 'Red Lentils (Masoor Dal) 1kg',
-    description: 'High-protein red lentils, easy to cook and delicious.',
-    price: 320,
-    image: findImage('lentils'),
-    category: 'dry-goods',
-    stock: 100,
-  },
-  {
-    id: 'prod-004',
-    name: 'National Biryani Masala',
-    description: 'A special blend of spices for authentic Sindhi Biryani.',
-    price: 150,
-    image: findImage('spices'),
-    category: 'dry-goods',
-    stock: 200,
-    isFeatured: true,
-  },
-  {
-    id: 'prod-005',
-    name: 'Family Pack Potato Chips',
-    description: 'Classic salted potato chips, a perfect snack for any time.',
-    price: 100,
-    image: findImage('snacks'),
-    category: 'dry-goods',
-    stock: 150,
-  },
-  {
-    id: 'prod-006',
-    name: 'Mixed Fruit Juice 1L',
-    description: 'Refreshing and nutritious mixed fruit juice.',
-    price: 280,
-    image: findImage('beverages'),
-    category: 'dry-goods',
-    stock: 80,
-  },
-  {
-    id: 'prod-007',
-    name: 'Frozen Chicken Breast 1kg',
-    description: 'Boneless and skinless chicken breast, frozen to maintain freshness.',
-    price: 1100,
-    image: findImage('frozen-chicken'),
-    category: 'frozen-foods',
-    stock: 30,
-    isFeatured: true,
-  },
-  {
-    id: 'prod-008',
-    name: 'Frozen French Fries 1kg',
-    description: 'Ready-to-cook french fries for a quick and tasty side.',
-    price: 550,
-    image: findImage('frozen-fries'),
-    category: 'frozen-foods',
-    stock: 60,
-  },
-  {
-    id: 'prod-009',
-    name: 'Chicken Nuggets 500g',
-    description: 'Crispy and tender chicken nuggets, a favorite for all ages.',
-    price: 750,
-    image: findImage('nuggets'),
-    category: 'frozen-foods',
-    stock: 45,
-    isFeatured: true,
-  },
-  {
-    id: 'prod-010',
-    name: 'Full Cream Milk 1L',
-    description: 'UHT processed full cream milk, with a long shelf life.',
-    price: 260,
-    image: findImage('packaged-milk'),
-    category: 'packaged-milk',
-    expiryDate: '2024-12-31',
-    stock: 120,
-  },
-  {
-    id: 'prod-011',
-    name: 'Cooking Oil 3L',
-    description: 'Versatile cooking oil for all your frying and cooking needs.',
-    price: 1600,
-    image: findImage('cooking-oil'),
-    category: 'dry-goods',
-    stock: 70,
-  },
-  {
-    id: 'prod-012',
-    name: 'Refined Sugar 1kg',
-    description: 'Clean and pure refined white sugar.',
-    price: 180,
-    image: findImage('sugar'),
-    category: 'dry-goods',
-    stock: 300,
-  },
-  {
-    id: 'prod-013',
-    name: 'Black Tea Bags (100 pack)',
-    description: 'Rich and aromatic black tea for a perfect start to your day.',
-    price: 450,
-    image: findImage('tea'),
-    category: 'dry-goods',
-    stock: 90,
-  },
-  {
-    id: 'prod-014',
-    name: 'Chocolate Chip Biscuits',
-    description: 'Deliciously sweet biscuits packed with chocolate chips.',
-    price: 220,
-    image: findImage('biscuits'),
-    category: 'dry-goods',
-    stock: 110,
-    isFeatured: true,
-  },
-];
+const productsFilePath = path.join(process.cwd(), 'src', 'lib', 'products.json');
+
+const readProductsFromFile = (): Product[] => {
+    try {
+        const fileContent = fs.readFileSync(productsFilePath, 'utf-8');
+        return JSON.parse(fileContent);
+    } catch (error) {
+        console.error("Could not read products.json, starting with empty list", error);
+        return [];
+    }
+}
+
+const writeProductsToFile = (products: Product[]) => {
+    try {
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2), 'utf-8');
+    } catch (error) {
+        console.error("Could not write to products.json", error);
+    }
+}
+
+
+export let products: Product[] = readProductsFromFile();
 
 let orders: Order[] = [
     {
@@ -172,9 +62,9 @@ let orders: Order[] = [
       customerPhone: '03001234567',
       customerAddress: 'House 123, Street 4, Sector G-10, Islamabad',
       items: [
-        { ...products[0], quantity: 1, image: products[0].image },
-        { ...products[9], quantity: 4, image: products[9].image }
-      ],
+        { ...products.find(p => p.id === 'prod-001')!, quantity: 1 },
+        { ...products.find(p => p.id === 'prod-010')!, quantity: 4 }
+      ].filter(item => item.id), // ensure no undefined items
       total: 1850 + (260 * 4),
       paymentMethod: 'COD',
       paymentStatus: 'Pending Payment - COD',
@@ -187,9 +77,9 @@ let orders: Order[] = [
       customerPhone: '03217654321',
       customerAddress: 'Apartment 5, Block B, F-11 Markaz, Islamabad',
       items: [
-        { ...products[6], quantity: 2, image: products[6].image },
-        { ...products[7], quantity: 1, image: products[7].image }
-      ],
+        { ...products.find(p => p.id === 'prod-007')!, quantity: 2 },
+        { ...products.find(p => p.id === 'prod-008')!, quantity: 1 }
+      ].filter(item => item.id),
       total: (1100 * 2) + 550,
       paymentMethod: 'Card',
       paymentStatus: 'Paid',
@@ -203,8 +93,8 @@ let orders: Order[] = [
       customerPhone: '03339876543',
       customerAddress: 'House 45, Lane 6, DHA Phase 2, Islamabad',
       items: [
-        { ...products[3], quantity: 2, image: products[3].image }
-      ],
+        { ...products.find(p => p.id === 'prod-004')!, quantity: 2 }
+      ].filter(item => item.id),
       total: 150 * 2,
       paymentMethod: 'Card',
       paymentStatus: 'Pending Verification',
@@ -215,18 +105,30 @@ let orders: Order[] = [
   ];
 
 // Mock database functions
-export const getProducts = async () => Promise.resolve(products);
-export const getProductById = async (id: string) => Promise.resolve(products.find(p => p.id === id));
+export const getProducts = async () => {
+    products = readProductsFromFile();
+    return Promise.resolve(products);
+};
+export const getProductById = async (id: string) => {
+    products = readProductsFromFile();
+    return Promise.resolve(products.find(p => p.id === id));
+};
 export const getCategories = async () => Promise.resolve(categories);
-export const getFeaturedProducts = async () => Promise.resolve(products.filter(p => p.isFeatured));
+export const getFeaturedProducts = async () => {
+    products = readProductsFromFile();
+    return Promise.resolve(products.filter(p => p.isFeatured));
+};
 
 export const addProduct = async (productData: Omit<Product, 'id' | 'image'> & { image: { id: string } }) => {
+    products = readProductsFromFile();
     const newProduct: Product = {
         ...productData,
         id: `prod-${String(products.length + 1).padStart(3, '0')}`,
         image: findImage(productData.image.id),
     };
-    products.unshift(newProduct);
+    const updatedProducts = [newProduct, ...products];
+    writeProductsToFile(updatedProducts);
+    products = updatedProducts;
     return Promise.resolve(newProduct);
 }
 
