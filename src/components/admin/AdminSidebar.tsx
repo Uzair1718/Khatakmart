@@ -8,7 +8,8 @@ import {
   Package,
   ShoppingCart,
   Users,
-  LogOut
+  LogOut,
+  Settings
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -28,8 +29,9 @@ export function AdminSidebar() {
 
     const navItems = [
         { href: "/admin/dashboard", label: "Dashboard", icon: Home },
-        { href: "/admin/orders", label: "Orders", icon: ShoppingCart, badge: 6 },
+        { href: "/admin/orders", label: "Orders", icon: ShoppingCart },
         { href: "/admin/products", label: "Products", icon: Package },
+        { href: "/admin/settings", label: "Settings", icon: Settings },
     ];
 
   return (
