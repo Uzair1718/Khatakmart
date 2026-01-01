@@ -36,6 +36,6 @@ export type Order = {
   paymentMethod: 'COD' | 'Card';
   paymentStatus: 'Pending Payment - COD' | 'Paid' | 'Pending Verification';
   orderStatus: 'Pending' | 'Confirmed' | 'Delivered' | 'Cancelled';
-  createdAt: Date;
+  createdAt: Date | string;
   paymentProofUrl?: string;
 };

@@ -1,7 +1,7 @@
 
 "use server";
 
-import { addOrder } from "@/lib/data";
+import { addNewOrder } from "@/lib/data";
 import { CartItem } from "@/lib/types";
 
 // In a real app, you would upload to a blob store like Cloud Storage
@@ -27,7 +27,7 @@ export async function placeOrder(formData: FormData) {
             paymentProofUrl = await uploadPaymentProof(paymentProofFile);
         }
 
-        const newOrder = await addOrder({
+        const newOrder = addNewOrder({
             customerName: name,
             customerPhone: phone,
             customerAddress: address,
@@ -40,7 +40,7 @@ export async function placeOrder(formData: FormData) {
         });
 
         // WhatsApp Integration
-        const whatsappNumber = "923155770026";
+        const whatsappNumber = "+923155770026";
         let message = `*New Order from Khattak MART Website*\n\n`;
         message += `*Order ID:* ${newOrder.id}\n`;
         message += `*Customer:* ${name}\n`;
@@ -62,4 +62,3 @@ export async function placeOrder(formData: FormData) {
         return { success: false, message: error instanceof Error ? error.message : "An unknown error occurred." };
     }
 }
-

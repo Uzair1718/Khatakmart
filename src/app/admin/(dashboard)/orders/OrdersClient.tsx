@@ -32,7 +32,6 @@ import { MoreHorizontal, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { Order } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { updateOrderStatus } from "@/lib/data";
 import { useToast } from "@/hooks/use-toast";
 import {
   Dialog,
@@ -42,6 +41,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Image from "next/image";
+import { handleUpdateOrderStatus } from "./actions";
 
 type OrderStatus = Order['orderStatus'];
 type PaymentStatus = Order['paymentStatus'];
@@ -59,10 +59,12 @@ export function OrdersClient({ initialOrders }: { initialOrders: Order[] }) {
 
   const handleStatusChange = async (orderId: string, orderStatus: OrderStatus, paymentStatus: PaymentStatus) => {
     try {
-        const updatedOrder = await updateOrderStatus(orderId, orderStatus, paymentStatus);
-        if(updatedOrder){
-            setOrders(prev => prev.map(o => o.id === orderId ? updatedOrder : o));
+        const result = await handleUpdateOrderStatus(orderId, orderStatus, paymentStatus);
+        if(result.success && result.updatedOrder){
+            setOrders(prev => prev.map(o => o.id === orderId ? result.updatedOrder as Order : o));
             toast({ title: "Status Updated", description: `Order ${orderId} has been updated.`});
+        } else {
+            throw new Error(result.message || 'Update failed');
         }
     } catch (error) {
         toast({ title: "Update Failed", variant: 'destructive' });

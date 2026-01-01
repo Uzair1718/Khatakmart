@@ -1,0 +1,103 @@
+[
+  {
+    "id": "ORD-001",
+    "customerName": "Ahmed Khan",
+    "customerPhone": "03001234567",
+    "customerAddress": "House 123, Street 4, Sector G-10, Islamabad",
+    "items": [
+      {
+        "id": "prod-001",
+        "name": "Basmati Rice 5kg",
+        "price": 1850,
+        "quantity": 1,
+        "image": {
+          "id": "rice",
+          "description": "A bag of premium basmati rice.",
+          "imageUrl": "https://images.unsplash.com/photo-1563249894-7aad9916d1ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxiYWclMjByaWNlfGVufDB8fHx8MTc2NzIwMzM5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+          "imageHint": "bag rice"
+        }
+      },
+      {
+        "id": "prod-010",
+        "name": "Full Cream Milk 1L",
+        "price": 260,
+        "quantity": 4,
+        "image": {
+          "id": "packaged-milk",
+          "description": "A carton of packaged milk.",
+          "imageUrl": "https://images.unsplash.com/photo-1576186726115-4d51596775d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtaWxrJTIwY2FydG9ufGVufDB8fHx8MTc2NzI0NDc5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+          "imageHint": "milk carton"
+        }
+      }
+    ],
+    "total": 2890,
+    "paymentMethod": "COD",
+    "paymentStatus": "Pending Payment - COD",
+    "orderStatus": "Pending",
+    "createdAt": "2024-05-20T10:30:00.000Z"
+  },
+  {
+    "id": "ORD-002",
+    "customerName": "Fatima Ali",
+    "customerPhone": "03217654321",
+    "customerAddress": "Apartment 5, Block B, F-11 Markaz, Islamabad",
+    "items": [
+      {
+        "id": "prod-007",
+        "name": "Frozen Chicken Breast 1kg",
+        "price": 1100,
+        "quantity": 2,
+        "image": {
+          "id": "frozen-chicken",
+          "description": "A pack of frozen chicken pieces.",
+          "imageUrl": "https://images.unsplash.com/photo-1709083591554-fe22ef2a8d56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmcm96ZW4lMjBjaGlja2VufGVufDB8fHx8MTc2NzIxMzM3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+          "imageHint": "frozen chicken"
+        }
+      },
+      {
+        "id": "prod-008",
+        "name": "Frozen French Fries 1kg",
+        "price": 550,
+        "quantity": 1,
+        "image": {
+          "id": "frozen-fries",
+          "description": "A bag of frozen french fries.",
+          "imageUrl": "https://images.unsplash.com/photo-1693160206119-f186d3a8b488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmcm96ZW4lMjBmcmllc3xlbnwwfHx8fDE3NjcyMDE2Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+          "imageHint": "frozen fries"
+        }
+      }
+    ],
+    "total": 2750,
+    "paymentMethod": "Card",
+    "paymentStatus": "Paid",
+    "orderStatus": "Delivered",
+    "createdAt": "2024-05-19T14:00:00.000Z",
+    "paymentProofUrl": "https://picsum.photos/seed/proof1/200/300"
+  },
+  {
+    "id": "ORD-003",
+    "customerName": "Zainab Bibi",
+    "customerPhone": "03339876543",
+    "customerAddress": "House 45, Lane 6, DHA Phase 2, Islamabad",
+    "items": [
+      {
+        "id": "prod-004",
+        "name": "National Biryani Masala",
+        "price": 150,
+        "quantity": 2,
+        "image": {
+          "id": "spices",
+          "description": "A jar of mixed spices.",
+          "imageUrl": "https://images.unsplash.com/photo-1757802261994-3c31584daafd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzcGljZXMlMjBqYXJ8ZW58MHx8fHwxNzY3MjYxMDYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+          "imageHint": "spices jar"
+        }
+      }
+    ],
+    "total": 300,
+    "paymentMethod": "Card",
+    "paymentStatus": "Pending Verification",
+    "orderStatus": "Confirmed",
+    "createdAt": "2024-05-21T09:00:00.000Z",
+    "paymentProofUrl": "https://picsum.photos/seed/proof2/200/300"
+  }
+]]
