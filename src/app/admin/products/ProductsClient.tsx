@@ -30,6 +30,8 @@ import { Badge } from "@/components/ui/badge";
 import type { Product } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { AddProductForm } from "./AddProductForm";
 
 export const columns: ColumnDef<Product>[] = [
   {
@@ -92,6 +94,7 @@ export const columns: ColumnDef<Product>[] = [
 ];
 
 export function ProductsClient({ products }: { products: Product[] }) {
+  const [open, setOpen] = React.useState(false);
   const table = useReactTable({
     data: products,
     columns,
@@ -101,13 +104,24 @@ export function ProductsClient({ products }: { products: Product[] }) {
 
   return (
     <Card>
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>All Products</CardTitle>
-        <Button>
-            <PlusCircle className="mr-2 h-4 w-4" />
-            Add Product
-        </Button>
-      </CardHeader>
+       <Dialog open={open} onOpenChange={setOpen}>
+        <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle>All Products</CardTitle>
+            <DialogTrigger asChild>
+                <Button>
+                    <PlusCircle className="mr-2 h-4 w-4" />
+                    Add Product
+                </Button>
+            </DialogTrigger>
+        </CardHeader>
+        <DialogContent>
+            <DialogHeader>
+                <DialogTitle>Add New Product</DialogTitle>
+            </DialogHeader>
+            <AddProductForm setOpen={setOpen} />
+        </DialogContent>
+      </Dialog>
+
       <CardContent>
         <div className="rounded-md border">
           <Table>

@@ -1,10 +1,13 @@
-import type { Category, Product } from './types';
+import type { Category, Order, Product } from './types';
 import { PlaceHolderImages } from './placeholder-images';
 
 const findImage = (id: string) => {
   const image = PlaceHolderImages.find((img) => img.id === id);
   if (!image) {
-    throw new Error(`Image with id "${id}" not found.`);
+    // Fallback to a default placeholder if the specific one isn't found
+    const defaultPlaceholder = PlaceHolderImages.find(img => img.id === 'new-product-placeholder');
+    if(defaultPlaceholder) return defaultPlaceholder;
+    throw new Error(`Image with id "${id}" not found and no default placeholder is available.`);
   }
   return image;
 };
@@ -27,7 +30,7 @@ export const categories: Category[] = [
   },
 ];
 
-export const products: Product[] = [
+export let products: Product[] = [
   {
     id: 'prod-001',
     name: 'Basmati Rice 5kg',
@@ -216,6 +219,16 @@ export const getProducts = async () => Promise.resolve(products);
 export const getProductById = async (id: string) => Promise.resolve(products.find(p => p.id === id));
 export const getCategories = async () => Promise.resolve(categories);
 export const getFeaturedProducts = async () => Promise.resolve(products.filter(p => p.isFeatured));
+
+export const addProduct = async (productData: Omit<Product, 'id' | 'image'> & { image: { id: string } }) => {
+    const newProduct: Product = {
+        ...productData,
+        id: `prod-${String(products.length + 1).padStart(3, '0')}`,
+        image: findImage(productData.image.id),
+    };
+    products.unshift(newProduct);
+    return Promise.resolve(newProduct);
+}
 
 export const getOrders = async () => Promise.resolve(orders);
 export const getOrderById = async (id: string) => Promise.resolve(orders.find(o => o.id === id));

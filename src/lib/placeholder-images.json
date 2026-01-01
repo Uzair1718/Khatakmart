@@ -107,6 +107,12 @@
       "description": "Cartons of milk on a shelf.",
       "imageUrl": "https://images.unsplash.com/photo-1757857843388-b8e0127e1cef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtaWxrJTIwY2FydG9uc3xlbnwwfHx8fDE3NjcyNjEwNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "milk cartons"
+    },
+    {
+      "id": "new-product-placeholder",
+      "description": "Generic product placeholder.",
+      "imageUrl": "https://images.unsplash.com/photo-1471445421505-d3bbc35affb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9kdWN0JTIwcGFja2FnZXxlbnwwfHx8fDE3NjcyNDgyMzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "product package"
     }
   ]
 }
