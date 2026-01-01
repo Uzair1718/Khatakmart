@@ -1,7 +1,5 @@
-export default function RootAdminLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
+import { redirect } from 'next/navigation'
+
+export default function AdminRootPage() {
+  redirect('/admin/dashboard')
 }

@@ -38,7 +38,7 @@ export function AdminSidebar() {
     <div className="hidden border-r bg-background md:block w-64">
       <div className="flex h-full max-h-screen flex-col gap-2">
         <div className="flex h-16 items-center border-b px-6">
-          <Link href="/admin" className="flex items-center gap-2 font-semibold font-headline">
+          <Link href="/admin/dashboard" className="flex items-center gap-2 font-semibold font-headline">
             <ShoppingCart className="h-6 w-6 text-primary" />
             <span className="">Khattak MART</span>
           </Link>
