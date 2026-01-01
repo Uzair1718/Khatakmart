@@ -9,7 +9,7 @@ import path from 'path';
 
 const productsFilePath = path.join(process.cwd(), 'src', 'lib', 'products.json');
 
-const readDataFromFile = <T>(filePath: string, defaultData: T[] = []): T[] => {
+const readDataFromFile = <T,>(filePath: string, defaultData: T[] = []): T[] => {
     try {
         if (fs.existsSync(filePath)) {
             const fileContent = fs.readFileSync(filePath, 'utf-8');
@@ -22,10 +22,10 @@ const readDataFromFile = <T>(filePath: string, defaultData: T[] = []): T[] => {
     }
 }
 
-const writeDataToFile = <T>(filePath: string, data: T[]) => {
+const writeDataToFile = <T,>(filePath: string, data: T[]) => {
     try {
         fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
-    } catch (error) => {
+    } catch (error) {
         console.error(`Could not write to ${path.basename(filePath)}`, error);
     }
 }
