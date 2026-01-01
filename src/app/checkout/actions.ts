@@ -53,7 +53,7 @@ export async function placeOrder(formData: FormData) {
         message += `\n*Total Amount:* PKR ${total.toFixed(2)}\n`;
         message += `*Payment:* ${paymentMethod === 'COD' ? 'Cash on Delivery' : 'Paid Online'}\n`;
 
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
 
         return { success: true, orderId: newOrder.id, whatsappUrl };
 
@@ -62,3 +62,4 @@ export async function placeOrder(formData: FormData) {
         return { success: false, message: error instanceof Error ? error.message : "An unknown error occurred." };
     }
 }
+
