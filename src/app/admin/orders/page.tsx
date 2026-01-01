@@ -1,7 +1,15 @@
 import { getOrders } from "@/lib/data";
 import { OrdersClient } from "./OrdersClient";
+import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 export default async function AdminOrdersPage() {
+    const cookieStore = cookies();
+    const authCookie = cookieStore.get("khattak_mart_auth");
+
+    if (authCookie?.value !== "true") {
+      redirect("/admin/login");
+    }
   const orders = await getOrders();
 
   return (

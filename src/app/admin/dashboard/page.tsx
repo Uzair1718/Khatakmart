@@ -6,8 +6,16 @@ import {
 } from "@/components/ui/card"
 import { DollarSign, CreditCard, Package } from "lucide-react"
 import { getDashboardStats } from "@/lib/data";
+import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 export default async function DashboardPage() {
+    const cookieStore = cookies();
+    const authCookie = cookieStore.get("khattak_mart_auth");
+
+    if (authCookie?.value !== "true") {
+      redirect("/admin/login");
+    }
     const stats = await getDashboardStats();
   return (
     <div className="flex flex-col gap-6">
