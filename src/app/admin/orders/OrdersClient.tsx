@@ -159,7 +159,7 @@ export function OrdersClient({ initialOrders }: { initialOrders: Order[] }) {
                   </DialogHeader>
                   {order.paymentProofUrl && 
                     <div className="relative aspect-[9/16] w-full mt-4">
-                        <Image src={order.paymentProofUrl} alt="Payment proof" layout="fill" objectFit="contain" />
+                        <Image src={order.paymentProofUrl} alt="Payment proof" fill objectFit="contain" />
                     </div>
                   }
               </DialogContent>
